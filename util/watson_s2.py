@@ -40,7 +40,7 @@ def erfi_inv(y, iters=8, thresh=1.5):
 	return sgn * x
 
 
-def sample_kronecker(k, sample_count):
+def sample_kronecker(k, sample_count, _):
 	gold_seq = (1+5**0.5)/2  # golden ratio
 
 	indices = np.arange(0, sample_count)
@@ -63,7 +63,7 @@ def sample_kronecker(k, sample_count):
 
 	return x_i_f
 
-def sample_random(kappa, sample_count):		
+def sample_random(kappa, sample_count, _):		
 	theta = 0 # can be hardcoded 
 	phi = 0
 
