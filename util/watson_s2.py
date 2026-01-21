@@ -1,5 +1,7 @@
 from scipy.special import erf, erfi, erfinv
 import numpy as np
+import sphstat
+import sympy as sp
 
 
 def erfi_inv(y, iters=8, thresh=1.5):
@@ -38,15 +40,10 @@ def erfi_inv(y, iters=8, thresh=1.5):
 	return sgn * x
 
 
-def sample_closed(sample_options, distribution_options):
-
-	sample_count = sample_options[0].state
-	k = distribution_options[0].state # kappa
-
+def sample_kronecker(k, sample_count):
 	gold_seq = (1+5**0.5)/2  # golden ratio
 
 	indices = np.arange(0, sample_count)
-
 	
 	if k > 0:
 		w = 1 / (np.sqrt(k)) * erfi_inv( ((1-2*indices + sample_count)/ sample_count) * erfi(np.sqrt(k)) )
@@ -65,3 +62,72 @@ def sample_closed(sample_options, distribution_options):
 	x_i_f = np.column_stack((x_i_f_0, x_i_f_1, x_i_f_2))
 
 	return x_i_f
+
+def sample_random(kappa, sample_count):		
+	theta = 0 # can be hardcoded 
+	phi = 0
+
+	if kappa == 0: # become uniform distribution
+		samples = np.random.normal(size=(sample_count, 3))
+		samples /= np.linalg.norm(samples, axis=1)[:, np.newaxis]
+		return samples
+
+	lamb, mu, nu = spherical_to_cartesian_s2(theta, phi)
+
+	samples = sphstat.distributions.watson(sample_count, lamb, mu, nu, kappa)["points"]
+	samples_array = np.vstack(samples)
+
+	return samples_array
+
+
+def get_rank_1(sample_count, k, without_first_point=False):
+	indices = np.arange(0, sample_count)
+	
+	# centered rank-1 lattice
+	F_k = int(sp.fibonacci(k - 1))
+	F_k_p_1 = sample_count  # int(sp.fibonacci(k))
+	assert F_k_p_1 == int(sp.fibonacci(k)), "sample_count has to be the k-th fibonacci number "
+	
+	z = (indices * (1/F_k_p_1) + (1/(2*F_k_p_1)) ) % 1
+	p = (indices * (F_k/F_k_p_1) + (1/(2*F_k_p_1)) ) % 1
+
+	if without_first_point:
+		z = z[1:]
+		p = p[1:]
+
+	return z, p
+
+"""
+Note that sample_count has to be a fibonacci number
+"""
+def sample_rank1(k, sample_count, fib_idx):
+
+
+		x, y = get_rank_1(sample_count, fib_idx, without_first_point=True)
+
+		x = 2*x -1  # map x from [0,1] to [-1, 1]
+		phi = 2 * np.pi * y  # azimuthal angle, [0, 2pi] uniform
+
+		if k > 0:
+			w = 1 / (np.sqrt(k)) * erfi_inv( x * erfi(np.sqrt(k)) )
+		elif k < 0:
+			la = -k
+			w = 1 / (np.sqrt(la)) * erfinv( x * erf(np.sqrt(la)) )
+		elif k == 0:
+			w = x
+
+
+		w = np.clip(w, -1.0, 1.0) # clamp to avoid sqrt warnings due to numerical issues
+
+		x_i_f_0 = w
+		x_i_f_1 = np.sqrt(1-w**2) * np.cos( phi)
+		x_i_f_2 = np.sqrt(1-w**2) * np.sin( phi)
+		x_i_f = np.column_stack((x_i_f_1, x_i_f_2, x_i_f_0)) # order so that mu=[0, 0, 1]
+		return x_i_f
+
+def spherical_to_cartesian_s2(theta, phi, r=1):
+		x = r * np.sin(theta) * np.cos(phi)
+		y = r * np.sin(theta) * np.sin(phi)
+		z = r * np.cos(theta)
+
+		return x, y, z

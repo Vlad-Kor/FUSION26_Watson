@@ -7,4 +7,9 @@ requires-python = ">=3.14"
 dependencies = [
     "numpy>=2.4.1",
     "scipy>=1.17.0",
+    "sphstat",
+    "sympy>=1.14.0",
 ]
+
+[tool.uv.sources]
+sphstat = { git = "https://github.com/Vlad-Kor/sphstat" }
