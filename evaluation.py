@@ -4,9 +4,10 @@ import pandas as pd
 from util.watson_s2 import sample_rank1, sample_random, sample_kronecker
 import matplotlib.pyplot as plt
 
-
+EVAL_TIMES_FOR_RANDOM = 50
+REFERENCE_METHOD = "random"
+REFERENCE_SAMPLECOUNT = 1000000
 x_0 = np.array([4, 5, 6])
-x_0 = np.array([4., 5., 6.]) / np.linalg.norm(np.array([4., 5., 6.]))
 
 # samples are shape (N, 3)
 methods = {
@@ -37,7 +38,9 @@ def get_sample_counts(max_count=1000, max_fib_idx=16):
 	return reg, fib_numbers, fib_idxes
 
 
-def evalute_all_methods(kappa, counts):
+def evalute_all_methods(kappa, counts, ref_val=None):
+
+
 	samplecounts, fib_numbers, fib_idxes = counts
 	all_counts = sorted(set(samplecounts).union(fib_numbers))
 	data = pd.DataFrame(index=all_counts, columns=methods.keys(), dtype=float)
@@ -46,21 +49,46 @@ def evalute_all_methods(kappa, counts):
 	for method in methods.keys():
 		if method == "rank1":
 			for fc, fi in zip(fib_numbers, fib_idxes):
-				data.loc[fc, method] = calc_with_method(fc, kappa, method, fi)
+				val = calc_with_method(fc, kappa, method, fi)
+				if ref_val is not None:
+					val = np.abs(val - ref_val)
+				data.loc[fc, method] = val
+		elif method == "random":
+			for sc in samplecounts:
+				vals = np.array([
+					calc_with_method(sc, kappa, method)
+					for _ in range(EVAL_TIMES_FOR_RANDOM)
+				])
+				if ref_val is not None:
+					errs = np.abs(vals - ref_val)
+					data.loc[sc, method] = np.mean(errs)
+					data.loc[sc, method+"_std"] = np.std(errs)
+				else:
+					data.loc[sc, method] = np.mean(vals)
+					data.loc[sc, method+"_std"] = np.std(vals)
 		else:
 			for sc in samplecounts:
-				data.loc[sc, method] = calc_with_method(sc, kappa, method)
+				val = calc_with_method(sc, kappa, method)
+				if ref_val is not None:
+					val = np.abs(val - ref_val)
+				data.loc[sc, method] = val
 
 	return data.sort_index()
 		
 
-def get_error(data, kappa):
-	#reference_method = "kronecker"
-	reference_method = "random"
-	samplecount = 1000000
+def get_reference_value(kappa):
+	return calc_with_method(REFERENCE_SAMPLECOUNT, kappa, REFERENCE_METHOD)
 
-	ref_val = calc_with_method(samplecount, kappa, reference_method)
-	return (data - ref_val).abs()
+
+def get_error(data, kappa, ref_val=None):
+	if ref_val is None:
+		ref_val = get_reference_value(kappa)
+	error = data.copy()
+	for col in error.columns:
+		if col.endswith("_std"):
+			continue
+		error[col] = (error[col] - ref_val).abs()
+	return error
 					
 
 
@@ -72,8 +100,28 @@ def plot_data(data, kappa):
 
 	plt.figure()
 	for method in data.columns:
+		if method.endswith("_std"):
+			continue
+
 		s = data[method].dropna()
-		plt.plot(s.index, s, label=method)
+		if s.empty:
+			continue
+		(line,) = plt.plot(s.index, s, label=method)
+
+		std_col = f"{method}_std"
+		if std_col in data.columns:
+			std = data[std_col].reindex(s.index)
+			band = std.notna()
+			if band.any():
+				upper = s[band] + std[band]
+				lower = s[band] - std[band]
+				color = line.get_color()
+				valid = lower > 0
+				upper = upper.where(valid)
+				lower = lower.where(valid)
+				plt.plot(upper.index, upper, color=color, linewidth=0.6, alpha=0.7)
+				plt.plot(lower.index, lower, color=color, linewidth=0.6, alpha=0.7)
+				plt.fill_between(upper.index, lower, upper, color=color, alpha=0.15)
 	plt.yscale("log")
 	plt.xscale("log")
 	plt.xlabel("Sample Count")
@@ -86,6 +134,6 @@ def plot_data(data, kappa):
 if __name__ == "__main__":
 	counts = get_sample_counts(max_count=1000, max_fib_idx=16)
 	kappa = 10
-	data = evalute_all_methods(kappa, counts)
-	error_data = get_error(data, kappa)
+	ref_val = get_reference_value(kappa)
+	error_data = evalute_all_methods(kappa, counts, ref_val=ref_val)
 	plot_data(error_data, kappa)
