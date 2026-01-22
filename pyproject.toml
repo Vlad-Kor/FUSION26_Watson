@@ -5,12 +5,18 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "beartype>=0.22.9",
+    "deterministic-gaussian-sampling-fibonacci",
     "numpy>=2.4.1",
+    "numpy-quaternion>=2024.0.13",
     "pandas>=2.2.0",
-    "scipy>=1.17.0",
+    "pyrecest",
+    "scipy<1.17.0",
     "sphstat",
     "sympy>=1.14.0",
 ]
 
 [tool.uv.sources]
 sphstat = { git = "https://github.com/Vlad-Kor/sphstat" }
+pyrecest = { git = "https://github.com/KIT-ISAS/pyRecEst.git", rev = "002c7757e2a5a81e4e57da5c1b657c5f9bd5cf6e" }
+deterministic-gaussian-sampling-fibonacci = { git = "https://github.com/KIT-ISAS/deterministic_gaussian_sampling_fibonacci.git" }
