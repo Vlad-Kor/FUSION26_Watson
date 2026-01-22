@@ -63,29 +63,42 @@ def sample_kronecker(k, sample_count, _):
 
 	return x_i_f
 
-def sample_random(kappa, sample_count, _):		
-	theta = 0 # can be hardcoded 
-	phi = 0
+def sample_random(kappa, sample_count, _):
+
 
 	if kappa == 0: # become uniform distribution
 		samples = np.random.normal(size=(sample_count, 3))
 		samples /= np.linalg.norm(samples, axis=1)[:, np.newaxis]
 		return samples
 
-	lamb, mu, nu = spherical_to_cartesian_s2(theta, phi)
+	mu = (1, 0, 0)
 
-	samples = sphstat.distributions.watson(sample_count, lamb, mu, nu, kappa)["points"]
-	samples_array = np.vstack(samples)
+	samples = sphstat.distributions.watson(sample_count, *mu, kappa)["points"]
 
-	return samples_array
+	# library returns Antithetic pairs, we dont want that here
+	if sample_count > 1:
+		m = len(samples)
+		n = m // 2
+		assert sample_count == n, "Unexpected number of samples generated"
+		rng = np.random.default_rng(None)
+		pts = np.vstack(samples)      # shape (2numsamp,3)
+		A = pts[:n]
+		B = pts[n:]
+		choose_B = rng.random(n) < 0.5
+		out = np.where(choose_B[:, None], B, A)
+		return out
+	else:
+		samples_array = np.vstack(samples)
+		return samples_array
 
 
 def get_rank_1(sample_count, k, without_first_point=False):
-	indices = np.arange(0, sample_count)
+	indices = np.arange(0, sample_count+1)
+
 	
 	# centered rank-1 lattice
 	F_k = int(sp.fibonacci(k - 1))
-	F_k_p_1 = sample_count  # int(sp.fibonacci(k))
+	F_k_p_1 = sample_count+1  # int(sp.fibonacci(k))
 	assert F_k_p_1 == int(sp.fibonacci(k)), "sample_count has to be the k-th fibonacci number "
 	
 	z = (indices * (1/F_k_p_1) + (1/(2*F_k_p_1)) ) % 1
@@ -122,7 +135,7 @@ def sample_rank1(k, sample_count, fib_idx):
 		x_i_f_0 = w
 		x_i_f_1 = np.sqrt(1-w**2) * np.cos( phi)
 		x_i_f_2 = np.sqrt(1-w**2) * np.sin( phi)
-		x_i_f = np.column_stack((x_i_f_1, x_i_f_2, x_i_f_0)) # order so that mu=[0, 0, 1]
+		x_i_f = np.column_stack((x_i_f_0, x_i_f_1, x_i_f_2)) # order so that mu=[1, 0, 0]
 		return x_i_f
 
 def spherical_to_cartesian_s2(theta, phi, r=1):

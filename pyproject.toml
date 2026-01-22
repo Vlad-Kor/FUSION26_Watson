@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "numpy>=2.4.1",
+    "pandas>=2.2.0",
     "scipy>=1.17.0",
     "sphstat",
     "sympy>=1.14.0",
