@@ -64,32 +64,29 @@ def sample_kronecker(k, sample_count, _):
 	return x_i_f
 
 def sample_random(kappa, sample_count, _):
+	k = kappa
+	xy = np.random.uniform(0, 1, size=(2, sample_count))
+	x, y = xy[0], xy[1]
+
+	x = 2*x -1  # map x from [0,1] to [-1, 1]
+	phi = 2 * np.pi * y  # azimuthal angle, [0, 2pi] uniform
+
+	if k > 0:
+		w = 1 / (np.sqrt(k)) * erfi_inv( x * erfi(np.sqrt(k)) )
+	elif k < 0:
+		la = -k
+		w = 1 / (np.sqrt(la)) * erfinv( x * erf(np.sqrt(la)) )
+	elif k == 0:
+		w = x
 
 
-	if kappa == 0: # become uniform distribution
-		samples = np.random.normal(size=(sample_count, 3))
-		samples /= np.linalg.norm(samples, axis=1)[:, np.newaxis]
-		return samples
+	w = np.clip(w, -1.0, 1.0) # clamp to avoid sqrt warnings due to numerical issues
 
-	mu = (1, 0, 0)
-
-	samples = sphstat.distributions.watson(sample_count, *mu, kappa)["points"]
-
-	# library returns Antithetic pairs, we dont want that here
-	if sample_count > 1:
-		m = len(samples)
-		n = m // 2
-		assert sample_count == n, "Unexpected number of samples generated"
-		rng = np.random.default_rng(None)
-		pts = np.vstack(samples)      # shape (2numsamp,3)
-		A = pts[:n]
-		B = pts[n:]
-		choose_B = rng.random(n) < 0.5
-		out = np.where(choose_B[:, None], B, A)
-		return out
-	else:
-		samples_array = np.vstack(samples)
-		return samples_array
+	x_i_f_0 = w
+	x_i_f_1 = np.sqrt(1-w**2) * np.cos( phi)
+	x_i_f_2 = np.sqrt(1-w**2) * np.sin( phi)
+	x_i_f = np.column_stack((x_i_f_0, x_i_f_1, x_i_f_2)) # order so that mu=[1, 0, 0]
+	return x_i_f
 
 
 def get_rank_1(sample_count, k, without_first_point=False):
