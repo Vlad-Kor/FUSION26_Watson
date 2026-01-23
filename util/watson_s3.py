@@ -9,10 +9,8 @@ from scipy.special import erf, erfi, erfinv
 from scipy.optimize import brentq
 from deterministic_gaussian_sampling_fibonacci import get_uniform_grid
 import matplotlib.pyplot as plt
+from util.generators import kronecker, rank1
 
-
-def transform_grid(grid):
-	pass
 
 def spherical_to_cartesian(psi, theta, phi):
 	x1 = np.cos(psi)
@@ -82,19 +80,39 @@ def sample_inverse_interpolation(grid, kappa):
 
 
 def grid_random(sample_count):
-	grid = np.random.uniform(0.0, 1.0, size=(sample_count, 4))
+	grid = np.random.uniform(0.0, 1.0, size=(sample_count, 3))
 	return grid
 
 def grid_sobol(sample_count):
 	from scipy.stats import qmc
-	sobol_engine = qmc.Sobol(d=4, scramble=True)
+	sobol_engine = qmc.Sobol(d=3, scramble=True)
 	sobol_samples = sobol_engine.random(n=sample_count)
 	return sobol_samples
 
 def grid_frolov(sample_count):
-	grid = get_uniform_grid(4, sample_count, "Fibonacci")
+	grid = get_uniform_grid(3, sample_count, "Fibonacci")
 	return grid
 
+def grid_kronecker(sample_count):
+	assert sample_count <= 177, "Kronecker grid only implemented up to 177 samples"
+
+	# see https://publikationen.bibliothek.kit.edu/1000179985 5.3.2.B; C.2.2: L<=177
+	g1 = 0.38196935570538115
+	g2 = 0.42019917392673339 
+	i = np.arange(0, sample_count)
+
+	g0 = (2*i -1) / (2*sample_count)
+
+	psi = (i*g0) % 1
+	theta = (i*g1) % 1
+	phi = (i*g2) % 1
+
+	grid = np.column_stack((psi, theta, phi))
+	return grid
+
+
+
+	
 def sample_random_s3(kappa, sample_count, _):
 	grid = grid_random(sample_count)
 	samples = sample_inverse_interpolation(grid, kappa)
@@ -107,6 +125,11 @@ def sample_sobol_s3(kappa, sample_count, _):
 
 def sample_frolov_s3(kappa, sample_count, _):
 	grid = grid_frolov(sample_count)
+	samples = sample_inverse_interpolation(grid, kappa)
+	return samples
+
+def sample_kronecker_s3(kappa, sample_count, _):
+	grid = grid_kronecker(sample_count)
 	samples = sample_inverse_interpolation(grid, kappa)
 	return samples
 

@@ -2,7 +2,7 @@ import numpy as np
 import sympy as sp
 import pandas as pd
 from util.watson_s2 import sample_rank1, sample_random, sample_kronecker
-from util.watson_s3 import sample_frolov_s3, sample_sobol_s3, sample_random_s3
+from util.watson_s3 import sample_frolov_s3, sample_sobol_s3, sample_random_s3, sample_kronecker_s3
 import matplotlib.pyplot as plt
 
 EVAL_TIMES_FOR_RANDOM = 100
@@ -21,7 +21,8 @@ methods_s2 = {
 methods_s3 = {
 	"frolov_s3": sample_frolov_s3,
 	"sobol_s3": sample_sobol_s3,
-	"random": sample_random_s3
+	"random": sample_random_s3,
+	"kronecker_s3": sample_kronecker_s3,
 }
 
 def g(x):
@@ -54,6 +55,10 @@ def evalute_all_methods(kappa, counts, ref_val=None, _methods=None):
 
 
 	samplecounts, fib_numbers, fib_idxes = counts
+
+	samplecounts_kronecker = samplecounts[samplecounts <= 177]
+	samplecounts_kronecker = np.append(samplecounts_kronecker, 177)
+
 	all_counts = sorted(set(samplecounts).union(fib_numbers))
 	data = pd.DataFrame(index=all_counts, columns=_methods.keys(), dtype=float)
 	data.index.name = "sample_count"
@@ -78,6 +83,12 @@ def evalute_all_methods(kappa, counts, ref_val=None, _methods=None):
 				else:
 					data.loc[sc, method] = np.mean(vals)
 					data.loc[sc, method+"_std"] = np.std(vals)
+		elif  method == "kronecker_s3":
+			for sc in samplecounts_kronecker:
+				val = calc_with_method(sc, kappa, method, _methods=_methods)
+				if ref_val is not None:
+					val = np.abs(val - ref_val)
+				data.loc[sc, method] = val
 		else:
 			for sc in samplecounts:
 				val = calc_with_method(sc, kappa, method, _methods=_methods)
@@ -118,7 +129,7 @@ def plot_data(data, kappa):
 		s = data[method].dropna()
 		if s.empty:
 			continue
-		(line,) = plt.plot(s.index, s, label=method)
+		(line,) = plt.plot(s.index, s, label=method.removesuffix("_s3"))
 
 		std_col = f"{method}_std"
 		if std_col in data.columns:
