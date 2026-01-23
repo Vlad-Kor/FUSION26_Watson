@@ -1,3 +1,4 @@
+from functools import lru_cache
 import numpy as np
 import scipy
 import scipy.integrate
@@ -9,7 +10,7 @@ from scipy.special import erf, erfi, erfinv
 from scipy.optimize import brentq
 from deterministic_gaussian_sampling_fibonacci import get_uniform_grid
 import matplotlib.pyplot as plt
-from util.generators import kronecker, rank1
+from util.generators import rank1
 
 
 def spherical_to_cartesian(psi, theta, phi):
@@ -19,10 +20,8 @@ def spherical_to_cartesian(psi, theta, phi):
 	x4 = np.sin(psi) * np.sin(theta) * np.sin(phi)
 	return np.column_stack((x1, x2, x3, x4))
 
-
-
-def sample_inverse_interpolation(grid, kappa):
-		
+@lru_cache
+def get_inverse_interpolated(kappa): 
 		mu = array([1.0, 0.0, 0.0, 0.0])
 		watson_dist = WatsonDistributionPyrecest(mu=mu, kappa=kappa)
 		
@@ -63,6 +62,11 @@ def sample_inverse_interpolation(grid, kappa):
 		# this works because the function is monotonic
 		# use PCHIP interpolation
 		q1 = scipy.interpolate.PchipInterpolator(x=y, y=x)
+		return q1
+
+def sample_inverse_interpolation(grid, kappa):
+		q1 = get_inverse_interpolated(kappa)	
+		
 		def q2(u, tol=1e-12, maxiter=100):
 			return np.arccos(1.0 - 2.0*u)
 		
@@ -97,17 +101,34 @@ def grid_kronecker(sample_count):
 	assert sample_count <= 177, "Kronecker grid only implemented up to 177 samples"
 
 	# see https://publikationen.bibliothek.kit.edu/1000179985 5.3.2.B; C.2.2: L<=177
+	g0 = 1/sample_count
 	g1 = 0.38196935570538115
 	g2 = 0.42019917392673339 
 	i = np.arange(0, sample_count)
 
-	g0 = (2*i -1) / (2*sample_count)
 
 	psi = (i*g0) % 1
 	theta = (i*g1) % 1
 	phi = (i*g2) % 1
 
 	grid = np.column_stack((psi, theta, phi))
+	return grid
+
+
+def latice_from_generator(sample_count, generator):
+	indices = np.arange(1, sample_count+1)
+	psi = ((indices/sample_count) * generator[0]) % 1
+	theta = ((indices/sample_count) * generator[1]) % 1
+	phi = ((indices/sample_count) * generator[2]) % 1
+
+	grid = np.column_stack((psi, theta, phi))
+	return grid
+
+def grid_rank1(sample_count):
+	generator = rank1[sample_count]
+	generator = generator[1:]
+	print(generator)
+	grid = latice_from_generator(sample_count, generator)
 	return grid
 
 
@@ -130,6 +151,11 @@ def sample_frolov_s3(kappa, sample_count, _):
 
 def sample_kronecker_s3(kappa, sample_count, _):
 	grid = grid_kronecker(sample_count)
+	samples = sample_inverse_interpolation(grid, kappa)
+	return samples
+
+def sample_rank1_s3(kappa, sample_count, _):
+	grid = grid_rank1(sample_count)
 	samples = sample_inverse_interpolation(grid, kappa)
 	return samples
 
