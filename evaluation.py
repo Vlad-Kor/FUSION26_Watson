@@ -9,7 +9,7 @@ from util.generators import rank1_cbc
 
 EVAL_TIMES_FOR_RANDOM = 100
 REFERENCE_METHOD = "random"
-REFERENCE_SAMPLECOUNT = 1000000
+REFERENCE_SAMPLECOUNT = 10000000
 x_0 = np.array([4, 5, 6])
 x_0_s3 = np.array([4, 5, 6, 7])
 
