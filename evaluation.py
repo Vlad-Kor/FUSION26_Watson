@@ -2,7 +2,7 @@ from functools import lru_cache
 import numpy as np
 import sympy as sp
 import pandas as pd
-from util.watson_s2 import sample_rank1, sample_random, sample_kronecker
+from util.watson_s2 import sample_rank1, sample_random, sample_kronecker, sample_sobol
 from util.watson_s3 import sample_frolov_s3, sample_sobol_s3, sample_random_s3, sample_kronecker_s3, sample_rank1_s3, sample_rank1_cbc_s3
 import matplotlib.pyplot as plt
 from util.generators import rank1_cbc
@@ -15,16 +15,17 @@ x_0_s3 = np.array([4, 5, 6, 7])
 
 # samples are shape (N, 3)
 methods_s2 = {
-	"rank1": sample_rank1,
+	"random": sample_random,
 	"kronecker": sample_kronecker,
-	"random": sample_random
+	"sobol": sample_sobol,
+	"rank1": sample_rank1,
 }
 
 methods_s3 = {
 #	"frolov_s3": sample_frolov_s3,
-	"sobol_s3": sample_sobol_s3,
 	"random": sample_random_s3,
 	"kronecker_s3": sample_kronecker_s3,
+	"sobol_s3": sample_sobol_s3,
 	"rank1_s3": sample_rank1_s3,
 	"rank1_cbc_s3": sample_rank1_cbc_s3
 }
@@ -103,6 +104,14 @@ def evalute_all_methods(kappa, counts, ref_val=None, _methods=None):
 					data.loc[sc, method+"_std"] = np.std(vals)
 		elif  method == "kronecker_s3":
 			for sc in samplecounts_kronecker:
+				val = calc_with_method(sc, kappa, method, _methods=_methods)
+				if ref_val is not None:
+					val = np.abs(val - ref_val)
+				data.loc[sc, method] = val
+
+		elif "sobol" in method:
+			sc_count = [2**i for i in range(1, 14) if 2**i <= max(samplecounts)]
+			for sc in sc_count:
 				val = calc_with_method(sc, kappa, method, _methods=_methods)
 				if ref_val is not None:
 					val = np.abs(val - ref_val)

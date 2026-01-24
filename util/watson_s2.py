@@ -1,4 +1,5 @@
 from scipy.special import erf, erfi, erfinv
+from scipy.stats import qmc
 import numpy as np
 import sphstat
 import sympy as sp
@@ -134,6 +135,32 @@ def sample_rank1(k, sample_count, fib_idx):
 		x_i_f_2 = np.sqrt(1-w**2) * np.sin( phi)
 		x_i_f = np.column_stack((x_i_f_0, x_i_f_1, x_i_f_2)) # order so that mu=[1, 0, 0]
 		return x_i_f
+
+def sample_sobol(k, sample_count, _):
+
+	sobol_engine = qmc.Sobol(d=2, scramble=True)
+	sobol_samples = sobol_engine.random(n=sample_count)
+	x, y = sobol_samples[:,0], sobol_samples[:,1]
+
+	x = 2*x -1  # map x from [0,1] to [-1, 1]
+	phi = 2 * np.pi * y  # azimuthal angle, [0, 2pi] uniform
+
+	if k > 0:
+		w = 1 / (np.sqrt(k)) * erfi_inv( x * erfi(np.sqrt(k)) )
+	elif k < 0:
+		la = -k
+		w = 1 / (np.sqrt(la)) * erfinv( x * erf(np.sqrt(la)) )
+	elif k == 0:
+		w = x
+
+
+	w = np.clip(w, -1.0, 1.0) # clamp to avoid sqrt warnings due to numerical issues
+
+	x_i_f_0 = w
+	x_i_f_1 = np.sqrt(1-w**2) * np.cos( phi)
+	x_i_f_2 = np.sqrt(1-w**2) * np.sin( phi)
+	x_i_f = np.column_stack((x_i_f_0, x_i_f_1, x_i_f_2)) # order so that mu=[1, 0, 0]
+	return x_i_f
 
 def spherical_to_cartesian_s2(theta, phi, r=1):
 		x = r * np.sin(theta) * np.cos(phi)
