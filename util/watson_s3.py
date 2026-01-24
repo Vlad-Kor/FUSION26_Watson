@@ -10,7 +10,7 @@ from scipy.special import erf, erfi, erfinv
 from scipy.optimize import brentq
 from deterministic_gaussian_sampling_fibonacci import get_uniform_grid
 import matplotlib.pyplot as plt
-from util.generators import rank1
+from util.generators import rank1, rank1_cbc
 
 
 def spherical_to_cartesian(psi, theta, phi):
@@ -131,6 +131,10 @@ def grid_rank1(sample_count):
 	grid = latice_from_generator(sample_count, generator)
 	return grid
 
+def grid_rank1_cbc(sample_count):
+	generator = rank1_cbc[sample_count]
+	grid = latice_from_generator(sample_count, generator)
+	return grid
 
 
 	
@@ -156,6 +160,11 @@ def sample_kronecker_s3(kappa, sample_count, _):
 
 def sample_rank1_s3(kappa, sample_count, _):
 	grid = grid_rank1(sample_count)
+	samples = sample_inverse_interpolation(grid, kappa)
+	return samples
+
+def sample_rank1_cbc_s3(kappa, sample_count, _):
+	grid = grid_rank1_cbc(sample_count)
 	samples = sample_inverse_interpolation(grid, kappa)
 	return samples
 

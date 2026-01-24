@@ -1,9 +1,11 @@
+from functools import lru_cache
 import numpy as np
 import sympy as sp
 import pandas as pd
 from util.watson_s2 import sample_rank1, sample_random, sample_kronecker
-from util.watson_s3 import sample_frolov_s3, sample_sobol_s3, sample_random_s3, sample_kronecker_s3, sample_rank1_s3
+from util.watson_s3 import sample_frolov_s3, sample_sobol_s3, sample_random_s3, sample_kronecker_s3, sample_rank1_s3, sample_rank1_cbc_s3
 import matplotlib.pyplot as plt
+from util.generators import rank1_cbc
 
 EVAL_TIMES_FOR_RANDOM = 100
 REFERENCE_METHOD = "random"
@@ -19,11 +21,12 @@ methods_s2 = {
 }
 
 methods_s3 = {
-	"frolov_s3": sample_frolov_s3,
+#	"frolov_s3": sample_frolov_s3,
 	"sobol_s3": sample_sobol_s3,
 	"random": sample_random_s3,
 	"kronecker_s3": sample_kronecker_s3,
-	"rank1_s3": sample_rank1_s3
+	"rank1_s3": sample_rank1_s3,
+	"rank1_cbc_s3": sample_rank1_cbc_s3
 }
 
 def g(x):
@@ -50,6 +53,17 @@ def get_sample_counts(max_count=1000, max_fib_idx=16):
 	fib_numbers = [int(sp.fibonacci(i)) -1 for i in fib_idxes]
 
 	return reg, fib_numbers, fib_idxes
+
+@lru_cache
+def get_prime_sample_counts():
+	samplecounts_rank1_cbc = rank1_cbc.keys()
+	samplecounts_rank1_cbc = np.array(list(samplecounts_rank1_cbc))
+
+	# pick about 50 sample counts logarithmically spaced
+	a = np.sort(np.unique(samplecounts_rank1_cbc))
+	t = np.logspace(np.log10(a[0]), np.log10(a[-1]), 50)
+	reg = np.unique(a[np.clip(np.searchsorted(a, t), 1, len(a)-1)])
+	return reg
 
 
 def evalute_all_methods(kappa, counts, ref_val=None, _methods=None):
@@ -100,6 +114,15 @@ def evalute_all_methods(kappa, counts, ref_val=None, _methods=None):
 				if ref_val is not None:
 					val = np.abs(val - ref_val)
 				data.loc[sc, method] = val
+		elif method == "rank1_cbc_s3":
+			reg = get_prime_sample_counts()
+
+			for sc in reg:
+				val = calc_with_method(sc, kappa, method, _methods=_methods)
+				if ref_val is not None:
+					val = np.abs(val - ref_val)
+				data.loc[sc, method] = val
+
 		else:
 			for sc in samplecounts:
 				val = calc_with_method(sc, kappa, method, _methods=_methods)
