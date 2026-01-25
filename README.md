@@ -3,7 +3,7 @@ This repository contains the code that was used to evaluate and compare determin
 run with
 
 ```bash
-poetry run python evaluation.py
+uv run python evaluation.py
 ```
 
 <img width="640" height="480" alt="Image" src="https://github.com/user-attachments/assets/1d0e30f9-f558-4910-9aa3-a41c23635192" />
