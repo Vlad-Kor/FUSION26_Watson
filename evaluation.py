@@ -134,7 +134,8 @@ def evalute_all_methods(kappa, counts, ref_val=None, _methods=None):
 
 		elif "sobol" in method:
 			sc_count = [2**i for i in range(1, 14) if 2**i <= max(samplecounts)]
-			for sc in sc_count:
+			s_count_all = np.union1d(samplecounts, sc_count)
+			for sc in s_count_all:
 				val = calc_with_method(sc, kappa, method, _methods=_methods)
 				if ref_val is not None:
 					val = np.abs(val - ref_val)
