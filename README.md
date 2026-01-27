@@ -4,6 +4,9 @@ run with
 
 ```bash
 uv run evaluation.py
+
+# or 
+uv run evaluation.py --silent -n 10000000
 ```
 
 <img width="640" height="480" alt="Image" src="https://github.com/user-attachments/assets/1d0e30f9-f558-4910-9aa3-a41c23635192" />

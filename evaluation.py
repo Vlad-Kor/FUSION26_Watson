@@ -1,10 +1,11 @@
+import argparse
 from functools import lru_cache
+import matplotlib
 import numpy as np
 import sympy as sp
 import pandas as pd
 from util.watson_s2 import sample_rank1, sample_random, sample_kronecker, sample_sobol
 from util.watson_s3 import sample_frolov_s3, sample_sobol_s3, sample_random_s3, sample_kronecker_s3, sample_rank1_s3, sample_rank1_cbc_s3
-import matplotlib.pyplot as plt
 from util.generators import rank1_cbc
 
 EVAL_TIMES_FOR_RANDOM = 100
@@ -14,6 +15,26 @@ x_0 = np.array([4, 5, 6])
 x_0_s3 = np.array([4, 5, 6, 7])
 
 np.random.seed(0)
+
+
+def parse_args():
+	parser = argparse.ArgumentParser(description="Evaluate sampling methods.")
+	parser.add_argument(
+		"--silent",
+		"--slient",
+		dest="silent",
+		action="store_true",
+		help="Save plots as PDF without displaying",
+	)
+	parser.add_argument(
+		"-n",
+		"--reference-samplecount",
+		dest="reference_samplecount",
+		type=int,
+		default=REFERENCE_SAMPLECOUNT,
+		help="Override reference sample count (default: %(default)s).",
+	)
+	return parser.parse_args()
 
 # samples are shape (N, 3)
 methods_s2 = {
@@ -144,8 +165,10 @@ def evalute_all_methods(kappa, counts, ref_val=None, _methods=None):
 	return data.sort_index()
 		
 
-def get_reference_value(kappa, _methods):
-	return calc_with_method(REFERENCE_SAMPLECOUNT, kappa, REFERENCE_METHOD, _methods=_methods)
+def get_reference_value(kappa, _methods, samplecount=None):
+	if samplecount is None:
+		samplecount = REFERENCE_SAMPLECOUNT
+	return calc_with_method(samplecount, kappa, REFERENCE_METHOD, _methods=_methods)
 
 
 def get_error(data, kappa, ref_val=None, _methods=None):
@@ -164,7 +187,9 @@ def get_error(data, kappa, ref_val=None, _methods=None):
 
 
 
-def plot_data(data, kappa):
+def plot_data(data, kappa, show=True, output_path=None):
+	import matplotlib.pyplot as plt
+
 	plt.close("all")
 	fig, ax = plt.subplots()
 	for method in data.columns:
@@ -199,21 +224,42 @@ def plot_data(data, kappa):
 	ax.minorticks_on()
 	ax.grid(True, which="major", linestyle="-", linewidth=0.6, alpha=0.6)
 	ax.grid(True, which="minor", linestyle=":", linewidth=0.4, alpha=0.4)
-	plt.show()
+	if output_path:
+		fig.savefig(output_path, format="pdf", bbox_inches="tight")
+	if show:
+		plt.show()
+	else:
+		plt.close(fig)
 
 
 
 if __name__ == "__main__":
+	args = parse_args()
+	if args.reference_samplecount <= 0:
+		raise ValueError("reference samplecount must be positive")
+	if args.silent:
+		matplotlib.use("Agg")
+
 	# evaluate S2 methods
 	counts = get_sample_counts(max_count=1000, max_fib_idx=16)
 	kappa = 10
-	ref_val = get_reference_value(kappa, _methods=methods_s2)
+	ref_val = get_reference_value(kappa, _methods=methods_s2, samplecount=args.reference_samplecount)
 	error_data = evalute_all_methods(kappa, counts, ref_val=ref_val, _methods=methods_s2)
-	plot_data(error_data, kappa)
+	plot_data(
+		error_data,
+		kappa,
+		show=not args.silent,
+		output_path="watson_s2_eval.pdf" if args.silent else None,
+	)
 
 	# evaluate S3 methods
 	counts = get_sample_counts(max_count=1000, max_fib_idx=16)
 	kappa = 10
-	ref_val = get_reference_value(kappa, _methods=methods_s3)
+	ref_val = get_reference_value(kappa, _methods=methods_s3, samplecount=args.reference_samplecount)
 	error_data = evalute_all_methods(kappa, counts, ref_val=ref_val, _methods=methods_s3)
-	plot_data(error_data, kappa)
+	plot_data(
+		error_data,
+		kappa,
+		show=not args.silent,
+		output_path="watson_s3_eval.pdf" if args.silent else None,
+	)
