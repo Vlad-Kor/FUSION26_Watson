@@ -13,6 +13,8 @@ REFERENCE_SAMPLECOUNT = 10000000
 x_0 = np.array([4, 5, 6])
 x_0_s3 = np.array([4, 5, 6, 7])
 
+np.random.seed(0)
+
 # samples are shape (N, 3)
 methods_s2 = {
 	"random": sample_random,
@@ -164,7 +166,7 @@ def get_error(data, kappa, ref_val=None, _methods=None):
 
 def plot_data(data, kappa):
 	plt.close("all")
-	plt.figure()
+	fig, ax = plt.subplots()
 	for method in data.columns:
 		if method.endswith("_std"):
 			continue
@@ -172,7 +174,7 @@ def plot_data(data, kappa):
 		s = data[method].dropna()
 		if s.empty:
 			continue
-		(line,) = plt.plot(s.index, s, label=method.removesuffix("_s3"))
+		(line,) = ax.plot(s.index, s, label=method.removesuffix("_s3"))
 
 		std_col = f"{method}_std"
 		if std_col in data.columns:
@@ -185,14 +187,18 @@ def plot_data(data, kappa):
 				valid = lower > 0
 				upper = upper.where(valid)
 				lower = lower.where(valid)
-				plt.plot(upper.index, upper, color=color, linewidth=0.6, alpha=0.7)
-				plt.plot(lower.index, lower, color=color, linewidth=0.6, alpha=0.7)
-				plt.fill_between(upper.index, lower, upper, color=color, alpha=0.15)
-	plt.yscale("log")
-	plt.xscale("log")
-	plt.xlabel("Sample Count")
-	plt.ylabel("Error")
-	plt.legend()
+				ax.plot(upper.index, upper, color=color, linewidth=0.6, alpha=0.7)
+				ax.plot(lower.index, lower, color=color, linewidth=0.6, alpha=0.7)
+				ax.fill_between(upper.index, lower, upper, color=color, alpha=0.15)
+	ax.set_yscale("log")
+	ax.set_xscale("log")
+	ax.set_xlabel("Sample Count", fontsize=14)
+	ax.set_ylabel("Mean absolute error", fontsize=14)
+	ax.tick_params(axis="both", which="both", labelsize=12)
+	ax.legend(fontsize=12)
+	ax.minorticks_on()
+	ax.grid(True, which="major", linestyle="-", linewidth=0.6, alpha=0.6)
+	ax.grid(True, which="minor", linestyle=":", linewidth=0.4, alpha=0.4)
 	plt.show()
 
 

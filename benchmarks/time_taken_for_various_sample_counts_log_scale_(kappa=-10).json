@@ -1,0 +1,1809 @@
+{
+  "filename": "time taken for various sample counts log scale (kappa=-10)",
+  "log_x": true,
+  "log_y": true,
+  "rows": [
+    {
+      "name": "Closed-Form",
+      "sample_count": 100,
+      "time": 4.897368992449931e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 108,
+      "time": 4.958646507399559e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 116,
+      "time": 4.9736773112366944e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 126,
+      "time": 5.0358920778611114e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 136,
+      "time": 5.416326141443051e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 147,
+      "time": 5.35857194160864e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 159,
+      "time": 5.50142418452045e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 172,
+      "time": 5.576144129454027e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 186,
+      "time": 5.641986795031547e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 201,
+      "time": 5.736514444928768e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 217,
+      "time": 5.838276867725275e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 234,
+      "time": 5.9556083839140685e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 253,
+      "time": 6.139726374480385e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 274,
+      "time": 6.176003130491381e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 296,
+      "time": 6.33682150559404e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 320,
+      "time": 6.451630724437033e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 346,
+      "time": 6.671992259062638e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 374,
+      "time": 6.921202464885331e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 404,
+      "time": 7.082995222826108e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 436,
+      "time": 7.21156303223817e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 472,
+      "time": 7.45544509195876e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 510,
+      "time": 8.06000374988495e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 551,
+      "time": 8.264936631737403e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 596,
+      "time": 8.692671286591273e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 644,
+      "time": 9.021595393126821e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 696,
+      "time": 9.196929963242914e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 752,
+      "time": 9.682949888514258e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 813,
+      "time": 9.983538473174273e-05
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 878,
+      "time": 0.00010502364305106463
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 949,
+      "time": 0.00010864014959205785
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 1026,
+      "time": 0.00011538477448027606
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 1109,
+      "time": 0.00011969622270745125
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 1198,
+      "time": 0.00012485233745186027
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 1295,
+      "time": 0.00013172720535597666
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 1399,
+      "time": 0.00013864621823718912
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 1512,
+      "time": 0.00014604708333744535
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 1634,
+      "time": 0.00015363597441554096
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 1766,
+      "time": 0.0001620442507487496
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 1909,
+      "time": 0.00017129860138235623
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 2063,
+      "time": 0.00018113852866292747
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 2230,
+      "time": 0.00019289319610891198
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 2410,
+      "time": 0.00020384369994417285
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 2604,
+      "time": 0.0002149648892592874
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 2814,
+      "time": 0.0002289469714317723
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 3041,
+      "time": 0.00024469193015950926
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 3287,
+      "time": 0.0002585747880592256
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 3552,
+      "time": 0.00027579408773021897
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 3839,
+      "time": 0.0002953531599947231
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 4149,
+      "time": 0.00031460344152757594
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 4484,
+      "time": 0.0003366550598627782
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 4846,
+      "time": 0.00035931143986734547
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 5237,
+      "time": 0.0003832306823824183
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 5659,
+      "time": 0.00041055219831302264
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 6116,
+      "time": 0.0004390970169917333
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 6610,
+      "time": 0.00046958656848801185
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 7143,
+      "time": 0.0005055979324917341
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 7720,
+      "time": 0.0005421121423031158
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 8343,
+      "time": 0.0005848600325559042
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 9016,
+      "time": 0.0006355478239584045
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 9744,
+      "time": 0.0006750670272291852
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 10531,
+      "time": 0.000723322716559475
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 11380,
+      "time": 0.0007841030467072111
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 12299,
+      "time": 0.0008367509584938185
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 13292,
+      "time": 0.0009039083615865214
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 14364,
+      "time": 0.000978673753509914
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 15524,
+      "time": 0.001043786158970761
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 16777,
+      "time": 0.0011337383076806874
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 18131,
+      "time": 0.0012078360552019755
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 19594,
+      "time": 0.0013111743213509422
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 21175,
+      "time": 0.0014078035660001357
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 22884,
+      "time": 0.001527212533612025
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 24731,
+      "time": 0.0016180982361371813
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 26727,
+      "time": 0.0017496068406520255
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 28885,
+      "time": 0.0018946309653074423
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 31216,
+      "time": 0.0020403621406330785
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 33735,
+      "time": 0.0022081661871501033
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 36458,
+      "time": 0.00235985922031432
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 39400,
+      "time": 0.0025462509978600185
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 42580,
+      "time": 0.0027500394552437985
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 46017,
+      "time": 0.002953483923541474
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 49731,
+      "time": 0.003196943158976258
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 53744,
+      "time": 0.003465626743733689
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 58082,
+      "time": 0.0037266341255114336
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 62770,
+      "time": 0.004029939245295585
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 67836,
+      "time": 0.004338378137587521
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 73310,
+      "time": 0.004693457741753567
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 79227,
+      "time": 0.0052167756594826645
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 85621,
+      "time": 0.005425854389735226
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 92532,
+      "time": 0.008614875739537335
+    },
+    {
+      "name": "Closed-Form",
+      "sample_count": 100000,
+      "time": 0.009254813783081772
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 100,
+      "time": 0.027735533658172547
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 108,
+      "time": 0.02762414873019831
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 116,
+      "time": 0.027708879680479487
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 126,
+      "time": 0.02747032336264965
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 136,
+      "time": 0.027446899275188723
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 147,
+      "time": 0.02761601688398514
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 159,
+      "time": 0.027624505753434885
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 172,
+      "time": 0.027950345408559465
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 186,
+      "time": 0.027507835600651256
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 201,
+      "time": 0.027612567880229713
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 217,
+      "time": 0.027703347234394944
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 234,
+      "time": 0.027773669153733256
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 253,
+      "time": 0.027468691516211643
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 274,
+      "time": 0.02739758301298328
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 296,
+      "time": 0.02776184644098976
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 320,
+      "time": 0.02741381186254633
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 346,
+      "time": 0.027522064225922804
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 374,
+      "time": 0.027855208894955772
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 404,
+      "time": 0.027574986362985023
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 436,
+      "time": 0.02749129599178559
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 472,
+      "time": 0.027440637646456403
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 510,
+      "time": 0.02759310649053077
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 551,
+      "time": 0.0275581797126506
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 596,
+      "time": 0.02782475692947628
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 644,
+      "time": 0.028087689708384763
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 696,
+      "time": 0.02783884024732591
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 752,
+      "time": 0.02796475940849632
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 813,
+      "time": 0.027555813245029034
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 878,
+      "time": 0.027680325875311003
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 949,
+      "time": 0.027881042551113448
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 1026,
+      "time": 0.028113900507984606
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 1109,
+      "time": 0.02794274864621305
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 1198,
+      "time": 0.027730246725938438
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 1295,
+      "time": 0.027946145278353166
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 1399,
+      "time": 0.02792795082932571
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 1512,
+      "time": 0.027949462080626594
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 1634,
+      "time": 0.027813822233777805
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 1766,
+      "time": 0.02791967174052843
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 1909,
+      "time": 0.02768218347094565
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 2063,
+      "time": 0.027838648845499848
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 2230,
+      "time": 0.028078301516749584
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 2410,
+      "time": 0.027778170621362126
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 2604,
+      "time": 0.027859735229139915
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 2814,
+      "time": 0.02801475973634903
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 3041,
+      "time": 0.028519284707241847
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 3287,
+      "time": 0.027725294861981335
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 3552,
+      "time": 0.027749005675529285
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 3839,
+      "time": 0.027983395226086335
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 4149,
+      "time": 0.028102522999445986
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 4484,
+      "time": 0.028528671746850403
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 4846,
+      "time": 0.02841859203739053
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 5237,
+      "time": 0.028319073307648067
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 5659,
+      "time": 0.028143261886240604
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 6116,
+      "time": 0.028187447887224455
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 6610,
+      "time": 0.028365415007040914
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 7143,
+      "time": 0.028277257420268143
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 7720,
+      "time": 0.02826795317402381
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 8343,
+      "time": 0.02854680831563504
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 9016,
+      "time": 0.028834130833517217
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 9744,
+      "time": 0.028416935120670436
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 10531,
+      "time": 0.02871609537154048
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 11380,
+      "time": 0.028724271150228256
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 12299,
+      "time": 0.028811894687532914
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 13292,
+      "time": 0.0286383479013845
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 14364,
+      "time": 0.029064563395998753
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 15524,
+      "time": 0.028629878183710388
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 16777,
+      "time": 0.02910295167603181
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 18131,
+      "time": 0.028764346800502
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 19594,
+      "time": 0.02904756152565824
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 21175,
+      "time": 0.029251339024631305
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 22884,
+      "time": 0.029615869158442366
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 24731,
+      "time": 0.029126165134463613
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 26727,
+      "time": 0.029295833695020215
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 28885,
+      "time": 0.029623587532599534
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 31216,
+      "time": 0.029700804154223683
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 33735,
+      "time": 0.030270742962359994
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 36458,
+      "time": 0.03032140797416408
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 39400,
+      "time": 0.030362531024487303
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 42580,
+      "time": 0.03040193235501647
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 46017,
+      "time": 0.03059957684066224
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 49731,
+      "time": 0.03128013813766302
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 53744,
+      "time": 0.031899276467205105
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 58082,
+      "time": 0.03193360955435007
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 62770,
+      "time": 0.03256584286597596
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 67836,
+      "time": 0.03247888089511738
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 73310,
+      "time": 0.03564754576291307
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 79227,
+      "time": 0.03659412033278689
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 85621,
+      "time": 0.03715857459537801
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 92532,
+      "time": 0.038267551640213546
+    },
+    {
+      "name": "Inverse Interpolation",
+      "sample_count": 100000,
+      "time": 0.03830136585869089
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 100,
+      "time": 0.05900633779432004
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 108,
+      "time": 0.058668273742174884
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 116,
+      "time": 0.05864673100101451
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 126,
+      "time": 0.058117651725964
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 136,
+      "time": 0.05885045800969237
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 147,
+      "time": 0.05893545677487661
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 159,
+      "time": 0.058919514176765615
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 172,
+      "time": 0.059107326915545856
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 186,
+      "time": 0.05849152258063744
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 201,
+      "time": 0.05870851682799791
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 217,
+      "time": 0.05892332102375804
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 234,
+      "time": 0.05903667472545446
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 253,
+      "time": 0.05886105341730096
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 274,
+      "time": 0.05883517358355069
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 296,
+      "time": 0.05907078886181504
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 320,
+      "time": 0.05896621989910879
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 346,
+      "time": 0.059360276014679886
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 374,
+      "time": 0.059121240574556096
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 404,
+      "time": 0.05854389377394303
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 436,
+      "time": 0.05861782897651816
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 472,
+      "time": 0.05877955727337394
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 510,
+      "time": 0.05919428829171617
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 551,
+      "time": 0.059475831758754795
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 596,
+      "time": 0.05892235091111312
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 644,
+      "time": 0.060488777433541446
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 696,
+      "time": 0.060386618640526045
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 752,
+      "time": 0.06000906348102338
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 813,
+      "time": 0.0595724235434318
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 878,
+      "time": 0.05944365479032664
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 949,
+      "time": 0.06017425419316472
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 1026,
+      "time": 0.06040672318534537
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 1109,
+      "time": 0.060482201865913035
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 1198,
+      "time": 0.05997662566951476
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 1295,
+      "time": 0.06043302010026916
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 1399,
+      "time": 0.060587560326287836
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 1512,
+      "time": 0.060865758659686735
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 1634,
+      "time": 0.05990146041343299
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 1766,
+      "time": 0.06096839663320376
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 1909,
+      "time": 0.060128667807536354
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 2063,
+      "time": 0.06102164538460784
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 2230,
+      "time": 0.06048229529988021
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 2410,
+      "time": 0.06012928622706871
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 2604,
+      "time": 0.060085222983616404
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 2814,
+      "time": 0.0609170901409622
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 3041,
+      "time": 0.06104977426827342
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 3287,
+      "time": 0.06064670679285579
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 3552,
+      "time": 0.06129500945195711
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 3839,
+      "time": 0.06140803680852211
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 4149,
+      "time": 0.061474123634495
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 4484,
+      "time": 0.061410060892618884
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 4846,
+      "time": 0.061880971866776234
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 5237,
+      "time": 0.06146798069094075
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 5659,
+      "time": 0.06174221360852243
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 6116,
+      "time": 0.06203225800660827
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 6610,
+      "time": 0.062142756118555555
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 7143,
+      "time": 0.062365201942157
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 7720,
+      "time": 0.06208045941699917
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 8343,
+      "time": 0.06259376079930613
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 9016,
+      "time": 0.06286678258378137
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 9744,
+      "time": 0.06276255107465355
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 10531,
+      "time": 0.06305475116047697
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 11380,
+      "time": 0.06314494017327282
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 12299,
+      "time": 0.0628013278983417
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 13292,
+      "time": 0.06366424800022893
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 14364,
+      "time": 0.06358711151745713
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 15524,
+      "time": 0.06370448420881682
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 16777,
+      "time": 0.06477742850790189
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 18131,
+      "time": 0.06345700150995981
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 19594,
+      "time": 0.06386451100115664
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 21175,
+      "time": 0.06543631648576896
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 22884,
+      "time": 0.06510654966696165
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 24731,
+      "time": 0.0652480886647633
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 26727,
+      "time": 0.06590381197553749
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 28885,
+      "time": 0.06603933361523863
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 31216,
+      "time": 0.06655042581502736
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 33735,
+      "time": 0.06692887698300183
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 36458,
+      "time": 0.06784280267359767
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 39400,
+      "time": 0.06836577463594343
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 42580,
+      "time": 0.06930066943944742
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 46017,
+      "time": 0.06963737866705438
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 49731,
+      "time": 0.07026621850770122
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 53744,
+      "time": 0.07095517525740433
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 58082,
+      "time": 0.0723602155436917
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 62770,
+      "time": 0.07257313790808742
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 67836,
+      "time": 0.07378470781404758
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 73310,
+      "time": 0.07546648899102971
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 79227,
+      "time": 0.07657210941639885
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 85621,
+      "time": 0.08086491791133692
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 92532,
+      "time": 0.08209778058129208
+    },
+    {
+      "name": "Inverse ODE",
+      "sample_count": 100000,
+      "time": 0.08393312841508305
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 100,
+      "time": 0.02950190636596138
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 108,
+      "time": 0.03131269336639283
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 116,
+      "time": 0.03319857009094752
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 126,
+      "time": 0.035493945257379284
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 136,
+      "time": 0.03771101018695238
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 147,
+      "time": 0.040775331371454136
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 159,
+      "time": 0.043820034970606984
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 172,
+      "time": 0.04640678255867291
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 186,
+      "time": 0.04963235345033657
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 201,
+      "time": 0.05334138724283548
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 217,
+      "time": 0.056786077234331364
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 234,
+      "time": 0.06143116850629061
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 253,
+      "time": 0.064987918966411
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 274,
+      "time": 0.07060668432629123
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 296,
+      "time": 0.07545457617525245
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 320,
+      "time": 0.081112367992561
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 346,
+      "time": 0.08753485800795412
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 374,
+      "time": 0.09509315399142602
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 404,
+      "time": 0.10113303393785221
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 436,
+      "time": 0.10790868801899099
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 472,
+      "time": 0.11729684410577951
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 510,
+      "time": 0.12565568390127738
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 551,
+      "time": 0.13814742895774543
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 596,
+      "time": 0.14774542493687476
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 644,
+      "time": 0.16121752673352602
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 696,
+      "time": 0.17329317728678387
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 752,
+      "time": 0.18482911781660125
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 813,
+      "time": 0.20155277158288906
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 878,
+      "time": 0.21399709948551995
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 949,
+      "time": 0.23585458061425016
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 1026,
+      "time": 0.25251569486281367
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 1109,
+      "time": 0.2722241176884078
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 1198,
+      "time": 0.29128110603487584
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 1295,
+      "time": 0.31852546023825806
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 1399,
+      "time": 0.34143233373664167
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 1512,
+      "time": 0.3697292012211013
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 1634,
+      "time": 0.3930012199678458
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 1766,
+      "time": 0.4315043752188406
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 1909,
+      "time": 0.45674875054974107
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 2063,
+      "time": 0.502225013281956
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 2230,
+      "time": 0.5301159676290506
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 2410,
+      "time": 0.5812315575303122
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 2604,
+      "time": 0.6341864088113652
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 2814,
+      "time": 0.712881809232446
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 3041,
+      "time": 0.7390793856340072
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 3287,
+      "time": 0.8180250000936212
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 3552,
+      "time": 0.8848876232824598
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 3839,
+      "time": 0.952198638136421
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 4149,
+      "time": 1.0240908730163938
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 4484,
+      "time": 1.098493719935262
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 4846,
+      "time": 1.19140342688576
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 5237,
+      "time": 1.2748676919776092
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 5659,
+      "time": 1.391061223356519
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 6116,
+      "time": 1.4937881442824923
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 6610,
+      "time": 1.626576634881591
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 7143,
+      "time": 1.7421021147000526
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 7720,
+      "time": 1.8352597746483903
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 8343,
+      "time": 2.044975962586856
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 9016,
+      "time": 2.2139305482560303
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 9744,
+      "time": 2.3577407098831222
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 10531,
+      "time": 2.56879595676243
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 11380,
+      "time": 2.757135487003446
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 12299,
+      "time": 2.9558767272382585
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 13292,
+      "time": 3.2352058448819054
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 14364,
+      "time": 3.3803276591284277
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 15524,
+      "time": 3.808638262315071
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 16777,
+      "time": 3.9950253756639236
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 18131,
+      "time": 4.34456654258247
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 19594,
+      "time": 4.665385522235495
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 21175,
+      "time": 5.178044032130856
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 22884,
+      "time": 5.419534037570702
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 24731,
+      "time": 5.8816972816489095
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 26727,
+      "time": 6.378995216103309
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 28885,
+      "time": 6.818428754873457
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 31216,
+      "time": 7.567729759064969
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 33735,
+      "time": 8.227408887681667
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 36458,
+      "time": 8.904286653965634
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 39400,
+      "time": 9.367247357410573
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 42580,
+      "time": 10.11003898444178
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 46017,
+      "time": 11.145286008831075
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 49731,
+      "time": 12.042434654852453
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 53744,
+      "time": 13.085139925529559
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 58082,
+      "time": 14.19156363249834
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 62770,
+      "time": 15.1210066663664
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 67836,
+      "time": 16.176285715652437
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 73310,
+      "time": 17.824698770501225
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 79227,
+      "time": 19.037680105266432
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 85621,
+      "time": 20.817608134629943
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 92532,
+      "time": 22.155691447119654
+    },
+    {
+      "name": "ODE Event Locations",
+      "sample_count": 100000,
+      "time": 24.292453385085295
+    }
+  ],
+  "title": "time taken for various sample counts (kappa=-10)",
+  "x_label": "sample_count"
+}

@@ -1,0 +1,629 @@
+{
+  "filename": "time taken for various kappa values (10000 samples)",
+  "log_x": false,
+  "log_y": false,
+  "rows": [
+    {
+      "kappa": -30,
+      "name": "Closed-Form",
+      "time": 0.0006869183088686744
+    },
+    {
+      "kappa": -28,
+      "name": "Closed-Form",
+      "time": 0.0006895160427764798
+    },
+    {
+      "kappa": -26,
+      "name": "Closed-Form",
+      "time": 0.0006915478940944316
+    },
+    {
+      "kappa": -24,
+      "name": "Closed-Form",
+      "time": 0.0006899221846424552
+    },
+    {
+      "kappa": -22,
+      "name": "Closed-Form",
+      "time": 0.0006894487288491291
+    },
+    {
+      "kappa": -20,
+      "name": "Closed-Form",
+      "time": 0.0006928345497385635
+    },
+    {
+      "kappa": -18,
+      "name": "Closed-Form",
+      "time": 0.0006885745219695612
+    },
+    {
+      "kappa": -16,
+      "name": "Closed-Form",
+      "time": 0.0006898473229208928
+    },
+    {
+      "kappa": -14,
+      "name": "Closed-Form",
+      "time": 0.0006907359042391666
+    },
+    {
+      "kappa": -12,
+      "name": "Closed-Form",
+      "time": 0.0006943863841873584
+    },
+    {
+      "kappa": -10,
+      "name": "Closed-Form",
+      "time": 0.0006891593874949346
+    },
+    {
+      "kappa": -8,
+      "name": "Closed-Form",
+      "time": 0.0006943384291086355
+    },
+    {
+      "kappa": -6,
+      "name": "Closed-Form",
+      "time": 0.0006881699195332658
+    },
+    {
+      "kappa": -4,
+      "name": "Closed-Form",
+      "time": 0.0006906914027240418
+    },
+    {
+      "kappa": -2,
+      "name": "Closed-Form",
+      "time": 0.0006855652975142827
+    },
+    {
+      "kappa": 0,
+      "name": "Closed-Form",
+      "time": 0.0004790714800113468
+    },
+    {
+      "kappa": 2,
+      "name": "Closed-Form",
+      "time": 0.003015427337701719
+    },
+    {
+      "kappa": 4,
+      "name": "Closed-Form",
+      "time": 0.0031317337199955847
+    },
+    {
+      "kappa": 6,
+      "name": "Closed-Form",
+      "time": 0.0031709517687280218
+    },
+    {
+      "kappa": 8,
+      "name": "Closed-Form",
+      "time": 0.0031563906572652438
+    },
+    {
+      "kappa": 10,
+      "name": "Closed-Form",
+      "time": 0.0031474113447984564
+    },
+    {
+      "kappa": 12,
+      "name": "Closed-Form",
+      "time": 0.003075041525304793
+    },
+    {
+      "kappa": 14,
+      "name": "Closed-Form",
+      "time": 0.003105253969746021
+    },
+    {
+      "kappa": 16,
+      "name": "Closed-Form",
+      "time": 0.003117344933343702
+    },
+    {
+      "kappa": 18,
+      "name": "Closed-Form",
+      "time": 0.0031118056195888737
+    },
+    {
+      "kappa": 20,
+      "name": "Closed-Form",
+      "time": 0.0030503003981872706
+    },
+    {
+      "kappa": 22,
+      "name": "Closed-Form",
+      "time": 0.0030896093143686207
+    },
+    {
+      "kappa": 24,
+      "name": "Closed-Form",
+      "time": 0.003110470708664555
+    },
+    {
+      "kappa": 26,
+      "name": "Closed-Form",
+      "time": 0.0031283567091122677
+    },
+    {
+      "kappa": 28,
+      "name": "Closed-Form",
+      "time": 0.0030571745736627538
+    },
+    {
+      "kappa": 30,
+      "name": "Closed-Form",
+      "time": 0.0030173454098682364
+    },
+    {
+      "kappa": -30,
+      "name": "Inverse Interpolation",
+      "time": 0.03208851179491224
+    },
+    {
+      "kappa": -28,
+      "name": "Inverse Interpolation",
+      "time": 0.03194894772823318
+    },
+    {
+      "kappa": -26,
+      "name": "Inverse Interpolation",
+      "time": 0.030964312499175625
+    },
+    {
+      "kappa": -24,
+      "name": "Inverse Interpolation",
+      "time": 0.03217757750899182
+    },
+    {
+      "kappa": -22,
+      "name": "Inverse Interpolation",
+      "time": 0.03211712863873496
+    },
+    {
+      "kappa": -20,
+      "name": "Inverse Interpolation",
+      "time": 0.031441643458917194
+    },
+    {
+      "kappa": -18,
+      "name": "Inverse Interpolation",
+      "time": 0.031288452067625865
+    },
+    {
+      "kappa": -16,
+      "name": "Inverse Interpolation",
+      "time": 0.030280859837027187
+    },
+    {
+      "kappa": -14,
+      "name": "Inverse Interpolation",
+      "time": 0.0302989204043115
+    },
+    {
+      "kappa": -12,
+      "name": "Inverse Interpolation",
+      "time": 0.029912817967124285
+    },
+    {
+      "kappa": -10,
+      "name": "Inverse Interpolation",
+      "time": 0.028102589445431172
+    },
+    {
+      "kappa": -8,
+      "name": "Inverse Interpolation",
+      "time": 0.027240853308467195
+    },
+    {
+      "kappa": -6,
+      "name": "Inverse Interpolation",
+      "time": 0.02468055687895685
+    },
+    {
+      "kappa": -4,
+      "name": "Inverse Interpolation",
+      "time": 0.02202797103515574
+    },
+    {
+      "kappa": -2,
+      "name": "Inverse Interpolation",
+      "time": 0.01731862263744309
+    },
+    {
+      "kappa": 0,
+      "name": "Inverse Interpolation",
+      "time": 0.008330393629391135
+    },
+    {
+      "kappa": 2,
+      "name": "Inverse Interpolation",
+      "time": 0.017530864418828666
+    },
+    {
+      "kappa": 4,
+      "name": "Inverse Interpolation",
+      "time": 0.02046393153553557
+    },
+    {
+      "kappa": 6,
+      "name": "Inverse Interpolation",
+      "time": 0.022301956809678815
+    },
+    {
+      "kappa": 8,
+      "name": "Inverse Interpolation",
+      "time": 0.024710101322367943
+    },
+    {
+      "kappa": 10,
+      "name": "Inverse Interpolation",
+      "time": 0.025826314878698516
+    },
+    {
+      "kappa": 12,
+      "name": "Inverse Interpolation",
+      "time": 0.02650987325469032
+    },
+    {
+      "kappa": 14,
+      "name": "Inverse Interpolation",
+      "time": 0.0265661646706576
+    },
+    {
+      "kappa": 16,
+      "name": "Inverse Interpolation",
+      "time": 0.027952031937941987
+    },
+    {
+      "kappa": 18,
+      "name": "Inverse Interpolation",
+      "time": 0.02803574755671434
+    },
+    {
+      "kappa": 20,
+      "name": "Inverse Interpolation",
+      "time": 0.02869833341149691
+    },
+    {
+      "kappa": 22,
+      "name": "Inverse Interpolation",
+      "time": 0.027851420330019513
+    },
+    {
+      "kappa": 24,
+      "name": "Inverse Interpolation",
+      "time": 0.028118976441570947
+    },
+    {
+      "kappa": 26,
+      "name": "Inverse Interpolation",
+      "time": 0.028622872970299796
+    },
+    {
+      "kappa": 28,
+      "name": "Inverse Interpolation",
+      "time": 0.02891570332091457
+    },
+    {
+      "kappa": 30,
+      "name": "Inverse Interpolation",
+      "time": 0.02808120417491106
+    },
+    {
+      "kappa": -30,
+      "name": "Inverse ODE",
+      "time": 0.14132071408287933
+    },
+    {
+      "kappa": -28,
+      "name": "Inverse ODE",
+      "time": 0.1255434352516507
+    },
+    {
+      "kappa": -26,
+      "name": "Inverse ODE",
+      "time": 0.12737822596391196
+    },
+    {
+      "kappa": -24,
+      "name": "Inverse ODE",
+      "time": 0.11858009934755197
+    },
+    {
+      "kappa": -22,
+      "name": "Inverse ODE",
+      "time": 0.11255115521780681
+    },
+    {
+      "kappa": -20,
+      "name": "Inverse ODE",
+      "time": 0.10288743676695351
+    },
+    {
+      "kappa": -18,
+      "name": "Inverse ODE",
+      "time": 0.08999325155115609
+    },
+    {
+      "kappa": -16,
+      "name": "Inverse ODE",
+      "time": 0.0883702197674817
+    },
+    {
+      "kappa": -14,
+      "name": "Inverse ODE",
+      "time": 0.08263387817569309
+    },
+    {
+      "kappa": -12,
+      "name": "Inverse ODE",
+      "time": 0.07078119872506553
+    },
+    {
+      "kappa": -10,
+      "name": "Inverse ODE",
+      "time": 0.06156441982360169
+    },
+    {
+      "kappa": -8,
+      "name": "Inverse ODE",
+      "time": 0.054664075283896336
+    },
+    {
+      "kappa": -6,
+      "name": "Inverse ODE",
+      "time": 0.04300752024913284
+    },
+    {
+      "kappa": -4,
+      "name": "Inverse ODE",
+      "time": 0.03230011910879208
+    },
+    {
+      "kappa": -2,
+      "name": "Inverse ODE",
+      "time": 0.018830139384954238
+    },
+    {
+      "kappa": 0,
+      "name": "Inverse ODE",
+      "time": 0.004847695017694302
+    },
+    {
+      "kappa": 2,
+      "name": "Inverse ODE",
+      "time": 0.015511715447913351
+    },
+    {
+      "kappa": 4,
+      "name": "Inverse ODE",
+      "time": 0.028082694399199682
+    },
+    {
+      "kappa": 6,
+      "name": "Inverse ODE",
+      "time": 0.033360732404495747
+    },
+    {
+      "kappa": 8,
+      "name": "Inverse ODE",
+      "time": 0.04474207885020102
+    },
+    {
+      "kappa": 10,
+      "name": "Inverse ODE",
+      "time": 0.04783466230898436
+    },
+    {
+      "kappa": 12,
+      "name": "Inverse ODE",
+      "time": 0.05850522365265836
+    },
+    {
+      "kappa": 14,
+      "name": "Inverse ODE",
+      "time": 0.06422181023517623
+    },
+    {
+      "kappa": 16,
+      "name": "Inverse ODE",
+      "time": 0.07516215499975563
+    },
+    {
+      "kappa": 18,
+      "name": "Inverse ODE",
+      "time": 0.08128564943326637
+    },
+    {
+      "kappa": 20,
+      "name": "Inverse ODE",
+      "time": 0.08491986976005136
+    },
+    {
+      "kappa": 22,
+      "name": "Inverse ODE",
+      "time": 0.09664276754144036
+    },
+    {
+      "kappa": 24,
+      "name": "Inverse ODE",
+      "time": 0.09962615625360437
+    },
+    {
+      "kappa": 26,
+      "name": "Inverse ODE",
+      "time": 0.10648483151453547
+    },
+    {
+      "kappa": 28,
+      "name": "Inverse ODE",
+      "time": 0.11577558160352056
+    },
+    {
+      "kappa": 30,
+      "name": "Inverse ODE",
+      "time": 0.11372299769912692
+    },
+    {
+      "kappa": -30,
+      "name": "ODE Event Locations",
+      "time": 2.3288894101162443
+    },
+    {
+      "kappa": -28,
+      "name": "ODE Event Locations",
+      "time": 2.2561918334162328
+    },
+    {
+      "kappa": -26,
+      "name": "ODE Event Locations",
+      "time": 2.371368006141468
+    },
+    {
+      "kappa": -24,
+      "name": "ODE Event Locations",
+      "time": 2.2875918121212937
+    },
+    {
+      "kappa": -22,
+      "name": "ODE Event Locations",
+      "time": 2.3740725244851393
+    },
+    {
+      "kappa": -20,
+      "name": "ODE Event Locations",
+      "time": 2.4106391989296148
+    },
+    {
+      "kappa": -18,
+      "name": "ODE Event Locations",
+      "time": 2.4113070061663167
+    },
+    {
+      "kappa": -16,
+      "name": "ODE Event Locations",
+      "time": 2.371069156866482
+    },
+    {
+      "kappa": -14,
+      "name": "ODE Event Locations",
+      "time": 2.478624560237707
+    },
+    {
+      "kappa": -12,
+      "name": "ODE Event Locations",
+      "time": 2.349340869077908
+    },
+    {
+      "kappa": -10,
+      "name": "ODE Event Locations",
+      "time": 2.4495824664782657
+    },
+    {
+      "kappa": -8,
+      "name": "ODE Event Locations",
+      "time": 2.311990356085395
+    },
+    {
+      "kappa": -6,
+      "name": "ODE Event Locations",
+      "time": 2.3920966637679766
+    },
+    {
+      "kappa": -4,
+      "name": "ODE Event Locations",
+      "time": 2.2563951600168366
+    },
+    {
+      "kappa": -2,
+      "name": "ODE Event Locations",
+      "time": 2.379763370981285
+    },
+    {
+      "kappa": 0,
+      "name": "ODE Event Locations",
+      "time": 2.4312242704695866
+    },
+    {
+      "kappa": 2,
+      "name": "ODE Event Locations",
+      "time": 2.236011034262871
+    },
+    {
+      "kappa": 4,
+      "name": "ODE Event Locations",
+      "time": 2.3461303504707756
+    },
+    {
+      "kappa": 6,
+      "name": "ODE Event Locations",
+      "time": 2.371552249310965
+    },
+    {
+      "kappa": 8,
+      "name": "ODE Event Locations",
+      "time": 2.4010187087376833
+    },
+    {
+      "kappa": 10,
+      "name": "ODE Event Locations",
+      "time": 2.351353260227673
+    },
+    {
+      "kappa": 12,
+      "name": "ODE Event Locations",
+      "time": 2.369723496612278
+    },
+    {
+      "kappa": 14,
+      "name": "ODE Event Locations",
+      "time": 2.3644214862016573
+    },
+    {
+      "kappa": 16,
+      "name": "ODE Event Locations",
+      "time": 2.4050131122310026
+    },
+    {
+      "kappa": 18,
+      "name": "ODE Event Locations",
+      "time": 2.4272983124372938
+    },
+    {
+      "kappa": 20,
+      "name": "ODE Event Locations",
+      "time": 2.3911102577869316
+    },
+    {
+      "kappa": 22,
+      "name": "ODE Event Locations",
+      "time": 2.3302279288540984
+    },
+    {
+      "kappa": 24,
+      "name": "ODE Event Locations",
+      "time": 2.436968557725777
+    },
+    {
+      "kappa": 26,
+      "name": "ODE Event Locations",
+      "time": 2.383705789219433
+    },
+    {
+      "kappa": 28,
+      "name": "ODE Event Locations",
+      "time": 2.3688276796252468
+    },
+    {
+      "kappa": 30,
+      "name": "ODE Event Locations",
+      "time": 2.454872017444965
+    }
+  ],
+  "title": "time taken for various kappa values (10000 samples)",
+  "x_label": "kappa"
+}
