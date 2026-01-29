@@ -67,7 +67,7 @@ def get_inverse_interpolated(kappa):
 def sample_inverse_interpolation(grid, kappa):
 		q1 = get_inverse_interpolated(kappa)	
 		
-		def q2(u, tol=1e-12, maxiter=100):
+		def q2(u):
 			return np.arccos(1.0 - 2.0*u)
 		
 		
