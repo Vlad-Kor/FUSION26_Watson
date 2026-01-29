@@ -68,6 +68,7 @@ def sample_inverse_interpolation(grid, kappa):
 		q1 = get_inverse_interpolated(kappa)	
 		
 		def q2(u):
+			# inverse of -(1/2) * (cos(x)-1)
 			return np.arccos(1.0 - 2.0*u)
 		
 		
