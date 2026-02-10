@@ -301,7 +301,7 @@ if __name__ == "__main__":
 		matplotlib.use("Agg")
 
 	# evaluate S2 methods
-	counts = get_sample_counts(max_count=1000, max_fib_idx=16)
+	counts = get_sample_counts(max_count=100000, max_fib_idx=25)
 	kappa = 10
 	#ref_val = get_reference_value(kappa, _methods=methods_s2, samplecount=args.reference_samplecount)
 	ref_val = calc_reference_value_s2(kappa)
@@ -314,7 +314,7 @@ if __name__ == "__main__":
 	)
 
 	# evaluate S3 methods
-	counts = get_sample_counts(max_count=1000, max_fib_idx=16)
+	counts = get_sample_counts(max_count=1000000, max_fib_idx=30)
 	kappa = 10
 	ref_val = calc_reference_value_s3(kappa)
 	error_data = evalute_all_methods(kappa, counts, ref_val=ref_val, _methods=methods_s3)
