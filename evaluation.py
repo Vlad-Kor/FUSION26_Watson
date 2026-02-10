@@ -4,8 +4,11 @@ import matplotlib
 import numpy as np
 import sympy as sp
 import pandas as pd
-from util.watson_s2 import sample_rank1, sample_random, sample_kronecker, sample_sobol
-from util.watson_s3 import sample_frolov_s3, sample_sobol_s3, sample_random_s3, sample_kronecker_s3, sample_rank1_s3, sample_rank1_cbc_s3
+import scipy
+from pyrecest.distributions import WatsonDistribution as WatsonDistributionPyrecest
+from pyrecest.backend import array
+from util.watson_s2 import sample_rank1, sample_random, sample_kronecker, sample_sobol, spherical_to_cartesian_s2
+from util.watson_s3 import sample_frolov_s3, sample_sobol_s3, sample_random_s3, sample_kronecker_s3, sample_rank1_s3, sample_rank1_cbc_s3, spherical_to_cartesian
 from util.generators import rank1_cbc
 
 EVAL_TIMES_FOR_RANDOM = 100
@@ -181,9 +184,65 @@ def get_error(data, kappa, ref_val=None, _methods=None):
 			continue
 		error[col] = (error[col] - ref_val).abs()
 	return error
-					
 
 
+@lru_cache
+def calc_reference_value_s2(kappa):
+	mu = array([1.0, 0.0, 0.0])
+	watson_dist = WatsonDistributionPyrecest(mu=mu, kappa=kappa)
+	
+
+	
+	def f(theta, phi):
+		# polar angle: 0 ≤ θ ≤ π  (theta)
+		# azimuth:     0 ≤ φ < 2π (phi)
+		x, y, z = spherical_to_cartesian_s2(theta=theta, phi=phi)
+		x = np.column_stack((x, y, z))
+		wts = watson_dist.pdf(array(x))
+		return float(wts.item())
+	
+	def g(theta, phi):
+		x, y, z = spherical_to_cartesian_s2(theta=theta, phi=phi)
+		x = np.column_stack((x, y, z))
+		return float(np.linalg.norm(x - x_0, axis=-1).item())
+	
+
+	def func(theta, phi):
+		return f(theta, phi) * g(theta, phi) * np.sin(theta)
+	
+	ranges = [(0, np.pi), (0, 2*np.pi)]
+	result, error = scipy.integrate.nquad(func, ranges, opts={"epsrel": 1e-12, "epsabs": 1e-12})
+	print(f"Reference value (kappa={kappa}): {result} with estimated error {error}")
+	return result
+
+@lru_cache
+def calc_reference_value_s3(kappa):
+	mu = array([1.0, 0.0, 0.0, 0.0])
+	watson_dist = WatsonDistributionPyrecest(mu=mu, kappa=kappa)
+	
+
+	
+	def f(psi, theta, phi):
+		# polar angle: 0 ≤ θ ≤ π  (theta)
+		# azimuth:     0 ≤ φ < 2π (phi)
+		x = spherical_to_cartesian(psi=psi, theta=theta, phi=phi)
+		wts = watson_dist.pdf(array(x))
+		return float(wts.item())
+	
+	def g(psi, theta, phi):
+		x = spherical_to_cartesian(psi=psi, theta=theta, phi=phi)
+		return float(np.linalg.norm(x - x_0_s3, axis=-1).item())
+	
+	def func(psi, theta, phi):
+		return f(psi, theta, phi) * g(psi, theta, phi) * (np.sin(psi)**2) * (np.sin(theta))
+	
+	ranges = [(0, np.pi), (0, np.pi), (0, 2*np.pi)]
+	result, error = scipy.integrate.nquad(func, ranges, opts={"epsrel": 1e-12, "epsabs": 1e-12})
+
+	print(f"Reference value (kappa={kappa}): {result} with estimated error {error}")
+
+	return result
+		
 		
 
 
@@ -244,7 +303,8 @@ if __name__ == "__main__":
 	# evaluate S2 methods
 	counts = get_sample_counts(max_count=1000, max_fib_idx=16)
 	kappa = 10
-	ref_val = get_reference_value(kappa, _methods=methods_s2, samplecount=args.reference_samplecount)
+	#ref_val = get_reference_value(kappa, _methods=methods_s2, samplecount=args.reference_samplecount)
+	ref_val = calc_reference_value_s2(kappa)
 	error_data = evalute_all_methods(kappa, counts, ref_val=ref_val, _methods=methods_s2)
 	plot_data(
 		error_data,
@@ -256,7 +316,7 @@ if __name__ == "__main__":
 	# evaluate S3 methods
 	counts = get_sample_counts(max_count=1000, max_fib_idx=16)
 	kappa = 10
-	ref_val = get_reference_value(kappa, _methods=methods_s3, samplecount=args.reference_samplecount)
+	ref_val = calc_reference_value_s3(kappa)
 	error_data = evalute_all_methods(kappa, counts, ref_val=ref_val, _methods=methods_s3)
 	plot_data(
 		error_data,
