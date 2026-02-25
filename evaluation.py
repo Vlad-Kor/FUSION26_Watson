@@ -29,14 +29,6 @@ def parse_args():
 		action="store_true",
 		help="Save plots as PDF without displaying",
 	)
-	parser.add_argument(
-		"-n",
-		"--reference-samplecount",
-		dest="reference_samplecount",
-		type=int,
-		default=REFERENCE_SAMPLECOUNT,
-		help="Override reference sample count (default: %(default)s).",
-	)
 	return parser.parse_args()
 
 # samples are shape (N, 3)
@@ -167,23 +159,6 @@ def evalute_all_methods(kappa, counts, ref_val=None, _methods=None):
 				data.loc[sc, method] = val
 
 	return data.sort_index()
-		
-
-def get_reference_value(kappa, _methods, samplecount=None):
-	if samplecount is None:
-		samplecount = REFERENCE_SAMPLECOUNT
-	return calc_with_method(samplecount, kappa, REFERENCE_METHOD, _methods=_methods)
-
-
-def get_error(data, kappa, ref_val=None, _methods=None):
-	if ref_val is None:
-		ref_val = get_reference_value(kappa, _methods=_methods)
-	error = data.copy()
-	for col in error.columns:
-		if col.endswith("_std"):
-			continue
-		error[col] = (error[col] - ref_val).abs()
-	return error
 
 
 @lru_cache
@@ -295,15 +270,12 @@ def plot_data(data, kappa, show=True, output_path=None):
 
 if __name__ == "__main__":
 	args = parse_args()
-	if args.reference_samplecount <= 0:
-		raise ValueError("reference samplecount must be positive")
 	if args.silent:
 		matplotlib.use("Agg")
 
 	# evaluate S2 methods
 	counts = get_sample_counts(max_count=1000000, max_fib_idx=30)
 	kappa = 10
-	#ref_val = get_reference_value(kappa, _methods=methods_s2, samplecount=args.reference_samplecount)
 	ref_val = calc_reference_value_s2(kappa)
 	error_data = evalute_all_methods(kappa, counts, ref_val=ref_val, _methods=methods_s2)
 	plot_data(

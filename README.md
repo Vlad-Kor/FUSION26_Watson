@@ -6,7 +6,7 @@ run with
 uv run evaluation.py
 
 # or 
-uv run evaluation.py --silent -n 10000000
+uv run evaluation.py --silent
 ```
 
 Minimal sampling helper:
